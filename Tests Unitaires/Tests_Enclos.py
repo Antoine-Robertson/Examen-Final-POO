@@ -25,7 +25,7 @@ def test_matricule_docteur(setup_enclos, taille_input, reponse_attendue):
     animal = setup_enclos
     enclos.taille = taille_input
     try:
-        enclos.estAdapte() = taille_input
+        enclos.estAdapte()
         assert reponse_attendue
     except (ValueError, TypeError):
         assert not reponse_attendue

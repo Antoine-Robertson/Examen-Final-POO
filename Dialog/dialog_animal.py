@@ -24,9 +24,15 @@ class Fenetreanimal(QtWidgets.QDialog, UI_PY.Dialog_animal.Ui_Dialog):
 
     @pyqtSlot()
     def on_pushButton_ajouter_clicked(self):
-        num_animal = self.lineEdit_numero_animal.text()
+        if self.lineEdit_numero_animal.text() == "":
+            self.label_erreur_numero_animal_invalide.show()
+        else:
+            num_animal = self.lineEdit_numero_animal.text()
         surnom = self.lineEdit_surnom_animal.text()
-        poids = self.lineEdit_poids_animal.text()
+        if int(self.lineEdit_poids_animal.text()) < 15:
+            self.label_erreur_poids_animal.show()
+        else:
+            poids = self.lineEdit_poids_animal.text()
         famille = self.comboBox_famille_animal.objectName()
         enclos = self.comboBox_enclos_animal.objectName()
         if self.comboBox_famille_animal.objectName() == "Mammifères":
